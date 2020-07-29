@@ -145,6 +145,14 @@ class login_test(unittest.TestCase):
         encontrar_link=driver.find_element_by_xpath("//*[@id='mySidenav']/div/a[29]")
         encontrar_link.click()
         
+    def  test_css_selector(self):
+        driver=self.driver
+        driver.get("https://www.w3schools.com/html/")
+        content=driver.find_element_by_css_selector("a.w3-blue")
+        time.sleep(2)
+        content.click()
+        time.sleep(2)
+
     def test_login(self):
         driver=self.driver
         driver.get("http:\\127.0.0.1:8000")
@@ -170,5 +178,5 @@ class login_test(unittest.TestCase):
 
 
 if __name__=='__main__':
-    test+="test_automatizar_hiperlink"
+    test+="test_css_selector"
     unittest.main(defaultTest=test)
