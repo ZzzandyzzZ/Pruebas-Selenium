@@ -110,6 +110,19 @@ class login_test(unittest.TestCase):
         seleccionar =Select(driver.find_element_by_xpath("//*[@id='main']/div[3]/div[1]/select"))
         seleccionar.select_by_value("5")
         time.sleep(2)
+        
+    def test_usar_radio_button(self):
+        driver=self.driver
+        driver.get("https://www.w3schools.com/howto/howto_css_custom_checkbox.asp")
+        time.sleep(2)
+        radio=driver.find_element_by_xpath("//*[@id='main']/div[3]/div[1]/input[4]")
+        radio.click()
+        time.sleep(2)
+        radio=driver.find_element_by_xpath("//*[@id='main']/div[3]/div[1]/input[3]")
+        radio.click()
+        time.sleep(2)
+        
+    
     def test_login(self):
         driver=self.driver
         driver.get("http:\\127.0.0.1:8000")
@@ -135,5 +148,5 @@ class login_test(unittest.TestCase):
 
 
 if __name__=='__main__':
-    test+="test_interactuar_select"
+    test+="test_usar_radio_button"
     unittest.main(defaultTest=test)
