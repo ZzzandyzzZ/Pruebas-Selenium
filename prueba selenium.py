@@ -130,6 +130,13 @@ class login_test(unittest.TestCase):
         hover= ActionChains(driver).move_to_element(element)
         hover.perform()
         time.sleep(3)
+
+    def test_displayed_element(self):
+        driver=self.driver
+        driver.get("http:\\www.google.com")
+        display=driver.find_element_by_name("btnI")
+        print(display.is_displayed())
+        print(display.is_enabled())
     def test_login(self):
         driver=self.driver
         driver.get("http:\\127.0.0.1:8000")
@@ -155,5 +162,5 @@ class login_test(unittest.TestCase):
 
 
 if __name__=='__main__':
-    test+="test_usar_hover_action"
+    test+="test_displayed_element"
     unittest.main(defaultTest=test)
