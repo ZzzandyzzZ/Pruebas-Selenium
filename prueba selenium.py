@@ -1,10 +1,11 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys  #Acciones en objetos
+from selenium.webdriver.common.by import By  #Opciones de busqueda
 from selenium.webdriver.support.ui import WebDriverWait #condiciones
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support import expected_conditions as EC #WaitKeys
+from selenium.webdriver.support.ui import Select  #Opciones de seleccion
+from selenium.webdriver import ActionChains #HoverAcion
 import time
 import cv2
 path=r"E:\Programas\drivers\chromedriver_win32\chromedriver.exe"
@@ -121,8 +122,14 @@ class login_test(unittest.TestCase):
         radio=driver.find_element_by_xpath("//*[@id='main']/div[3]/div[1]/input[3]")
         radio.click()
         time.sleep(2)
-        
-    
+
+    def test_usar_hover_action(self):
+        driver=self.driver
+        driver.get("http:\\www.google.com")
+        element=driver.find_element_by_link_text("Privacidad")
+        hover= ActionChains(driver).move_to_element(element)
+        hover.perform()
+        time.sleep(3)
     def test_login(self):
         driver=self.driver
         driver.get("http:\\127.0.0.1:8000")
@@ -148,5 +155,5 @@ class login_test(unittest.TestCase):
 
 
 if __name__=='__main__':
-    test+="test_usar_radio_button"
+    test+="test_usar_hover_action"
     unittest.main(defaultTest=test)
