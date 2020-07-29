@@ -137,6 +137,14 @@ class login_test(unittest.TestCase):
         display=driver.find_element_by_name("btnI")
         print(display.is_displayed())
         print(display.is_enabled())
+
+    def test_automatizar_hiperlink(self):
+        driver=self.driver
+        driver.get("http:\\www.w3schools.com")
+        time.sleep(3)
+        encontrar_link=driver.find_element_by_xpath("//*[@id='mySidenav']/div/a[29]")
+        encontrar_link.click()
+        
     def test_login(self):
         driver=self.driver
         driver.get("http:\\127.0.0.1:8000")
@@ -162,5 +170,5 @@ class login_test(unittest.TestCase):
 
 
 if __name__=='__main__':
-    test+="test_displayed_element"
+    test+="test_automatizar_hiperlink"
     unittest.main(defaultTest=test)
