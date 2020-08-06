@@ -153,6 +153,9 @@ class login_test(unittest.TestCase):
         content.click()
         time.sleep(2)
 
+##    def test_recuperar_datos_busqueda(self):
+        
+    
     def test_login(self):
         driver=self.driver
         driver.get("http:\\127.0.0.1:8000")
@@ -178,5 +181,5 @@ class login_test(unittest.TestCase):
 
 
 if __name__=='__main__':
-    test+="test_css_selector"
+    test+="test_login"
     unittest.main(defaultTest=test)
